@@ -2,8 +2,8 @@
 
 Enterprise control panel for NVIDIA (llamactl) and Intel B70 (SYCL) llama.cpp fleets.
 
-**Dashboard:** http://192.168.10.100:9000  
-**Repo:** http://192.168.10.14/achraf/llama-dashboard
+**Dashboard:** http://192.168.1.100:9000  
+**Repo:** http://192.168.1.100/achraf/llama-dashboard
 
 ## Important
 
