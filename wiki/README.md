@@ -19,7 +19,7 @@ The same content lives under `docs/` in the git repo for version control alongsi
 Enable wiki on the repo in Gitea (Settings → Wiki), then:
 
 ```bash
-git clone http://192.168.10.14/achraf/llama-dashboard.wiki.git
+git clone https://github.com/achraf33-cyber/ULD.git
 cd llama-dashboard.wiki
 cp ../llama-dashboard/wiki/*.md .
 git add .
