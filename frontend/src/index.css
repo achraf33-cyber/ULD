@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --bg: #f5f5f7;
+  --bg-subtle: #ebebef;
+  --surface: #ffffff;
+  --surface-elevated: #fafafa;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+  --accent: #007aff;
+  --accent-hover: #0062cc;
+  --separator: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --status-running-bg: rgba(52, 199, 89, 0.12);
+  --status-running-text: #248a3d;
+  --status-warning-bg: rgba(255, 149, 0, 0.12);
+  --status-warning-text: #c93400;
+  --status-error-bg: rgba(255, 59, 48, 0.12);
+  --status-error-text: #d70015;
+  --status-stopped-bg: rgba(142, 142, 147, 0.15);
+  --status-stopped-text: #6e6e73;
+  --chart-grid: rgba(0, 0, 0, 0.08);
+  --chart-line: #007aff;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: rgba(0, 0, 0, 0.08);
+  --sidebar-bg: rgba(255, 255, 255, 0.78);
+  --terminal-bg: #fafafa;
+  --nav-active-bg: rgba(0, 122, 255, 0.1);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #000000;
+  --bg-subtle: #1c1c1e;
+  --surface: #1c1c1e;
+  --surface-elevated: #2c2c2e;
+  --text-primary: #f5f5f7;
+  --text-secondary: #98989d;
+  --text-tertiary: #636366;
+  --accent: #0a84ff;
+  --accent-hover: #409cff;
+  --separator: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --status-running-bg: rgba(48, 209, 88, 0.15);
+  --status-running-text: #30d158;
+  --status-warning-bg: rgba(255, 159, 10, 0.15);
+  --status-warning-text: #ff9f0a;
+  --status-error-bg: rgba(255, 69, 58, 0.15);
+  --status-error-text: #ff453a;
+  --status-stopped-bg: rgba(142, 142, 147, 0.2);
+  --status-stopped-text: #98989d;
+  --chart-grid: rgba(255, 255, 255, 0.08);
+  --chart-line: #0a84ff;
+  --chart-tooltip-bg: #2c2c2e;
+  --chart-tooltip-border: rgba(255, 255, 255, 0.1);
+  --sidebar-bg: rgba(28, 28, 30, 0.82);
+  --terminal-bg: #0d0d0f;
+  --nav-active-bg: rgba(10, 132, 255, 0.14);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-separator: var(--separator);
+  --shadow-card: var(--shadow-card);
+  --radius-card: 0.875rem;
+  --radius-control: 0.5rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-text-primary antialiased;
+  font-family: var(--font-sans);
+  background-image: radial-gradient(ellipse 80% 50% at 50% -20%, var(--bg-subtle), transparent);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.page-enter {
+  animation: fade-in 0.35s ease-out;
+}
+
+.live-dot {
+  animation: pulse-live 2s ease-in-out infinite;
+}

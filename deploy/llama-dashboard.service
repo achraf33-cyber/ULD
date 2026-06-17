@@ -1,0 +1,17 @@
+[Unit]
+Description=ULD — Unified LlamaCPP Dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Replace /opt/uld with your install path (see scripts/install.sh)
+WorkingDirectory=/opt/uld/backend
+EnvironmentFile=-/opt/uld/.env
+Environment=DASHBOARD_STATIC_DIR=frontend_dist
+ExecStart=/opt/uld/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 9000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
